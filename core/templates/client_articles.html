@@ -1,0 +1,9 @@
+<div class="main">
+    {% for article in articles %}
+        Site: {{ article.site }}<br/>
+        Client: {{ article.client }}<br/>
+        Insert Date: {{ article.insert_date }}<br/>
+        Article Date: {{ article.article_date }}<br/>
+        <hr/>
+    {% endfor %}
+</div>
