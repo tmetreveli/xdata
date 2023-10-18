@@ -5,9 +5,9 @@ from django.http import HttpResponse
 from .forms import CSVUploadForm
 from .models import Client
 import csv
-from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404
 from .forms import ClientForm
-from django.contrib import messages
+
 
 
 
@@ -36,6 +36,7 @@ def upload_csv(request, client_id):
     else:
         form = CSVUploadForm()
     return render(request, 'upload.html', {'form': form})
+    
 
 def save_filter_words(request, client_id):
     if 'filter_words' in request.session:
@@ -54,9 +55,21 @@ def save_filter_words(request, client_id):
             FilterWords.objects.create(word=word[0], client=client)
         
         del request.session['filter_words']
-        return HttpResponse("Saved successfully!")
+        html_content = """
+            <script>
+                alert('Successfully created');
+                window.location.href = '/';
+            </script>
+        """
+        return HttpResponse(html_content)
     else:
-        return HttpResponse("No data to save!")
+        html_content = """
+            <script>
+                alert('No data to save!');
+                window.location.href = '/';
+            </script>
+        """
+        return HttpResponse(html_content)
 
 
 def create_view(request):
