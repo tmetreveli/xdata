@@ -21,12 +21,9 @@ from core import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('articles/<int:client_id>/', views.view_client_articles, name='view_articles'),
-    # path('', views.home, name='home'),
     path('', views.list_view, name='home'),
     path('<int:client_id>/upload-csv/', views.upload_csv, name='upload_csv'),
-    # path('save-filter-words/', views.save_filter_words, name='save_filter_words'),
     path('save-filter-words/<int:client_id>/', views.save_filter_words, name='save_filter_words'),
-
     path('create', views.create_view),
     path('list', views.list_view),
     path('<id>', views.detail_view),

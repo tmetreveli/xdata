@@ -1,23 +1,32 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List of Users</title>
-    <link rel="stylesheet" href="path_to_your_css"> <!-- Make sure to link your CSS file if you have one -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+
 </head>
 <body>
 
 <div style="margin: 20px;">
     <div>
-        <h2>Register New User</h2>
+        <button class="admin" onclick="location.href='/admin'">Admin Page</button>
+        <h2>Register New User</h2> 
         <form action="/create" method="post">
             {% csrf_token %}
-            <label for="username">Username:</label>
-            <input type="text" name="username" required>
-            <label for="tts_enabled">TTS Enabled:</label>
-            <input type="checkbox" name="tts_enabled">
-            <input type="submit" value="Register">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" name="username" required>
+            </div>
+            <div>
+                <label for="tts_enabled">TTS Enabled:</label>
+                <input type="checkbox" name="tts_enabled">
+            </div>           
+            <input class="register" type="submit" value="Register">
         </form>
     </div>
 
@@ -36,10 +45,9 @@
                 <td>{{ user.username }}</td>
                 <td>{{ user.tts_enabled }}</td>
                 <td>
-                    <button onclick="location.href='/{{ user.id }}/update'">Edit</button>
-                    <button onclick="location.href='/{{ user.id }}/delete'">Delete</button>
-                    <button onclick="location.href='/{{ user.id }}/upload-csv'">Add CSV</button>
-
+                    <button class="edit" onclick="location.href='/{{ user.id }}/update'">Edit</button>
+                    <button class="delete" onclick="location.href='/{{ user.id }}/delete'">Delete</button>
+                    <button class="csv" onclick="location.href='/{{ user.id }}/upload-csv'">Add CSV</button>
                 </td>
             </tr>
             {% endfor %}
