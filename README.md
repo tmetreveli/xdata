@@ -11,19 +11,19 @@ Python 3.x
 Django (Specify the version you used, e.g., Django 3.2)
 
 Setup and Installation
-git clone https://github.com/tmetreveli/xdata.git
-cd xdata
+# git clone git@github.com:tmetreveli/xdata.git
+# cd xdata
 
-python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+# python -m venv venv
+# source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 
-pip install -r requirements.txt
+# pip install -r requirements.txt
 
-python manage.py migrate
+# python manage.py migrate
 
-python manage.py runserver
+# python manage.py runserver
 
-Now, open your browser and go to http://127.0.0.1:8000/ to access the application.
+# Now, open your browser and go to http://127.0.0.1:8000/ to access the application.
 
 Usage
 To register a new user, fill in the "Username" field and check the "TTS Enabled" box if required, then click "Register".
